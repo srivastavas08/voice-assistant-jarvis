@@ -16,7 +16,7 @@ import random
 import psutil
 import shutil
 import ctypes 
-import pyaudio
+# import pyaudio
 import nltk 
 from win32com.client import Dispatch 
 import sys
@@ -40,7 +40,7 @@ import requests, json
 def weather():
 
 # Enter your API key here 
-    api_key = "#############################"
+    api_key = "26cc04b982183ead03749d76426b613f"
 
 # base_url variable to store url 
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -199,31 +199,33 @@ def cpu():
     speak(battery.percent)
 
 def takecommand(): #Takes command from user
-    r = sr.Recognizer()
-    with sr.Microphone() as source: #module Pyaudio is installed to access microphone using pip win in scripts
-        print("Listening....")
-        r.pause_threshold = 0.5  #so that it listens after 1 second
-        r.adjust_for_ambient_noise(source)
-        r.phrase_threshold = 0.5
-        r.dynamic_energy_threshold = 100
-        audio = r.listen(source)
-        
-    try:
-        print("Recognizing...")
-        querry = r.recognize_google(audio, language='en-US') #you can change language here in audio
-
-        print(querry) #prints what it listens
-    except Exception as e:
-        print(e)
-        print("Say It Again")
-        return "None"
+    querry = input("Listening....")
     return querry
+    # r = sr.Recognizer()
+    # with sr.Microphone() as source: #module Pyaudio is installed to access microphone using pip win in scripts
+    #     print("Listening....")
+    #     r.pause_threshold = 0.5  #so that it listens after 1 second
+    #     r.adjust_for_ambient_noise(source)
+    #     r.phrase_threshold = 0.5
+    #     r.dynamic_energy_threshold = 100
+    #     audio = r.listen(source)
+        
+    # try:
+    #     print("Recognizing...")
+    #     querry = r.recognize_google(audio, language='en-US') #you can change language here in audio
+
+    #     print(querry) #prints what it listens
+    # except Exception as e:
+    #     print(e)
+    #     print("Say It Again")
+    #     return "None"
+    # return querry
 
 def sendmail(to,content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('kcsrivastavas08@gmail.com','password')
+    server.login('kcsrivastavas08@gmail.com','SHIvam7426')
     server.sendmail('kcsrivastavas08@gmail.com', to, content)
     server.close()
 
@@ -236,13 +238,13 @@ def random_line(fname):
     return random.choice(lines)
 
 def wolfram(z):
-    #wolframalpha id = ############
+    #wolframalpha id = J4ERLH-GPQG9AHP9L
     # Taking input from user
     try:
         question = z
   
     # App id obtained by the above steps 
-        app_id = '##############'
+        app_id = 'J4ERLH-GPQG9AHP9L'
   
     # Instance of wolf ram alpha  
     # client class 
@@ -273,7 +275,7 @@ def coronavirus():
 
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
-        'x-rapidapi-key': "###################################"
+        'x-rapidapi-key': "1823e002fdmsh4e98afb629c1395p160c0bjsnd9d6717b4c05"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -324,7 +326,7 @@ def coronavirus():
 
     headers = {
         'x-rapidapi-host': "indianmobilenumberinfo.p.rapidapi.com",
-        'x-rapidapi-key': "#####################################"
+        'x-rapidapi-key': "1823e002fdmsh4e98afb629c1395p160c0bjsnd9d6717b4c05"
         }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
@@ -350,7 +352,7 @@ def usrname():
     speak("How can i Help you, Sir") 
 
 def headlines(): 
-	#api-key = ########################################
+	#api-key = 0ace5f0941274b69b18251442bb970c0
 	# BBC news api 
 	main_url = " https://newsapi.org/v1/articles?source=bbc-news&language=en&country=in&sortBy=top&apiKey=0ace5f0941274b69b18251442bb970c0"
 
@@ -559,7 +561,7 @@ if __name__== "__main__":
             print(file.read()) 
             speak(file.read(6)) 
                       
-       
+        # NPPR9-FWDCX-D2C8J-H872K-2YT43 
         elif "jarvis" in querry:
             jarvis()
 
